@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class BmiCal {
+    
+    public static void main(String[]args) {
+        Scanner input= new Scanner(System.in);
+        System.out.println("Enter the weight in lbs");
+        double num1= input.nextDouble();
+        
+        System.out.println("Enter the height in inches");
+        double num2= input.nextDouble();
+        
+        BMITwoNumbers add= new BMITwoNumbers();
+        
+        
+        add.setNum1(num1);
+        add.setNum2(num2);
+        
+        
+        System.out.println("If you weigh " + num1 + " lbs  and have a height of " + num2 + " inches, " + " your bmi is " + add.getBMI());
+        
+        
+          
+        if (add.getBMI() < 18.5 && add.getBMI() > 18.5)
+    {
+        System.out.println("With a BMI of " + add.getBMI() + " you are underweight");
+    }
+     else if (add.getBMI() > 18.5 && add.getBMI() < 24.9)
+    {
+        System.out.println("With a BMI of " +add.getBMI() + " you have a normal weight");
+    }
+      else if (add.getBMI() < 24.9 && add.getBMI() > 30)
+    {
+        System.out.println("With a BMI of " + add.getBMI() + "you are overweight");
+    }
+      else if (add.getBMI() > 30)
+    {
+        System.out.println("With a BMI of " + add.getBMI() + "you are obese");
+    
+    }
+    }
+}
+
+
+
+class BMITwoNumbers {
+    private double num1;
+    private double num2;
+    private double bmi;
+    
+    public void setNum1 (double num1) {
+        this.num1= num1;
+    }
+    
+    public void setNum2 (double num2) {
+        this.num2= num2;
+    }
+    
+    public double getNum1 () {
+        return num1;
+    }
+    
+    public double getNum2 () {
+        return num2;
+    }
+    
+    public double getBMI () {
+        bmi= 703*num1/Math.pow(num2,2);;
+        return bmi;
+    }
+}
