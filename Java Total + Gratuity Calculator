@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class financialtip {
+    public static void main(String[]args) {
+        Scanner input= new Scanner(System.in);
+        System.out.println("Welcome To The Subtotal Calculator");
+        System.out.println("Enter the subtotal: ");
+        double num1= input.nextDouble();
+        System.out.println("Enter the gratuity rate in percent: ");
+        double num2= input.nextDouble();
+        
+        financial add= new financial();
+        
+        add.setNum1(num1);
+        add.setNum2(num2);
+        
+        System.out.println("The gratuity is $" + add.getGrat() + " and the total is $" + add.getTotal());
+    }
+}
+
+    class financial {
+        private double num1;
+        private double num2;
+        private double total;
+        private double grat;
+        
+        public void setNum1(double num1) {
+            this.num1=num1;
+        }
+        
+        public void setNum2(double num2) {
+            this.num2=num2;
+        }
+        
+        public double getNum1() {
+            return num1;
+        }
+        
+        public double getNum2() {
+            return num2;
+        }
+        
+        public double getGrat() {
+            grat= num2 * .100;
+            return grat;
+        }
+        
+        public double getTotal() {
+            total= grat + num1;
+            return total;
+        }
+    
+    }
